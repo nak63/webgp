@@ -33,4 +33,3 @@ static3==0.7.0
 Twisted==20.3.0
 txaio==20.4.1
 zope.interface==5.1.0
-pyscopg2>=2.6.1
