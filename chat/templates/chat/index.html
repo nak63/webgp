@@ -1,0 +1,78 @@
+{% load bootstrap3 %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WebGP</title>
+
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+</head>
+
+<style>
+.container {
+    height: 600px;
+    position: relative;
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+p {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+</style>
+
+<body>
+<div class="container">
+<div class="center">
+    <!-- Header -->
+    {% block header %}
+        <h1>WebGP</h1>
+    {% endblock header %}
+
+
+    <p><br></br></p>
+    Welcome. Are you a patient or physician?<br>
+    <input id="room-name-input" type="text" size="100"><br>
+
+    {% buttons %}
+        <input id="room-name-submit" value ="Enter" class="btn btn-primary">
+    {% endbuttons %}
+
+    <!--input id="room-name-submit" type="button" value="Enter"-->
+
+    <script>
+        document.querySelector('#room-name-input').focus();
+        document.querySelector('#room-name-input').onkeyup = function(e) {
+            if (e.keyCode === 13) {  // enter, return
+                document.querySelector('#room-name-submit').click();
+            }
+        };
+
+        document.querySelector('#room-name-submit').onclick = function(e) {
+            var roomName = document.querySelector('#room-name-input').value;
+            window.location.pathname = '/chat/' + roomName + '/';
+        };
+    </script>
+    <p><br></br><br></br><br></br>WebGP is a product that connects patients to physicians at no cost.</p>
+
+</svg>
+</div>
+</div>
+</body>
+</html>

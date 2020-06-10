@@ -1,0 +1,2 @@
+web: gunicorn justchat.wsgi --log-file -
+daphne: daphne justchat.asgi:application
